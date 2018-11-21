@@ -5,9 +5,7 @@ var router = express.Router();
 router.get('/', (req, res, next) => {
   const ipInfo = req.ipInfo;
   const message = `Hey, you are browsing from ${ipInfo.city}, ${ipInfo.country}`;
-  console.log(message);
-  console.log(ipInfo);
-
+  console.log(req.ip);
   res.json(ipInfo)
 });
 
