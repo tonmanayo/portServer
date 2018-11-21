@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon --exec babel-node --presets env,stage-2  ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^6.1.0",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "express-ip": "^1.0.3",
+    "helmet": "^3.15.0",
+    "http-errors": "~1.6.2",
+    "mongoose": "^5.3.13",
+    "morgan": "~1.9.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "nodemon": "^1.18.6"
+  }
+}
