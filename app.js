@@ -20,9 +20,7 @@ app.set('view engine', 'ejs');
 
 app.use(expressip().getIpInfoMiddleware);
 app.use(logger('dev'));
-app.use(helmet({
-    noCache: true,
-}));
+
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Credentials", "true");
