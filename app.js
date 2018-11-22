@@ -8,7 +8,7 @@ const expressip = require('express-ip');
 // const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
-const testRouter = require('./routes/test');
+const userIDRouter = require('./routes/userID');
 const helmet = require('helmet');
 
 
@@ -37,7 +37,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/test', testRouter);
+app.use('/userID', userIDRouter);
 
 
 // catch 404 and forward to error handler
