@@ -8,6 +8,7 @@ const expressip = require('express-ip');
 // const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
+const testRouter = require('./routes/test');
 const helmet = require('helmet');
 
 
@@ -20,7 +21,9 @@ app.set('view engine', 'ejs');
 
 app.use(expressip().getIpInfoMiddleware);
 app.use(logger('dev'));
-
+app.use(helmet({
+    noCache: true,
+}));
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Credentials", "true");
@@ -34,6 +37,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/test', testRouter);
 
 
 // catch 404 and forward to error handler
