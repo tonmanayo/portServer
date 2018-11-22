@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', (req, res, next) => {
     console.log(req.ip);
-    res.json(req.ip)
+    res.post(req.ip)
 });
 
 module.exports = router;
