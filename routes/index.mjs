@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
+let router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
@@ -9,4 +9,4 @@ router.get('/', (req, res, next) => {
   res.json(ipInfo)
 });
 
-module.exports = router;
+export default router;

@@ -1,1 +1,1 @@
-web: node build/bin/www
+web: node --experimental-modules ./bin/www.mjs

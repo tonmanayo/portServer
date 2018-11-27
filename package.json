@@ -3,9 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon --exec babel-node --presets env,stage-2 ./bin/www",
-    "build-babel": "babel -d ./build ./bin/www -s",
-    "start": "node build/bin/www"
+    "dev": "nodemon --experimental-modules ./bin/www.mjs",
+    "build": "NODE_ENV=production yarn run clean && yarn run build-babel",
+    "start": "node --experimental-modules ./bin/www.mjs",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./bin -s"
+
   },
   "dependencies": {
     "body-parser": "^1.18.3",

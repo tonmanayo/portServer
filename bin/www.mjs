@@ -4,11 +4,10 @@
  * Module dependencies.
  */
 
-let app = require('../app');
-let debug = require('debug')('server:server');
-let http = require('http');
-import 'dotenv/config';
-
+import app from '../app'
+import Debug from 'debug';
+import http from'http'
+const debug = Debug('server:server');
 /**
  * Event listener for HTTP server "error" event.
  */
@@ -35,7 +34,7 @@ const onError = (error) => {
         default:
             throw error;
     }
-}
+};
 
 /**
  * Event listener for HTTP server "listening" event.

@@ -1,16 +1,16 @@
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-const expressip = require('express-ip'); // sending json
+import createErrorR  from'http-errors';
+import express from 'express';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import expressip from 'express-ip'; // sending json
 import mongoose from 'mongoose';             // using data modeling library for mongo
-var bodyParser = require('body-parser');
+import bodyParser from 'body-parser';
 
 
-const indexRouter = require('./routes/index');
-const userIDRouter = require('./routes/userID');
-const helmet = require('helmet');
+import indexRouter  from './routes/index';
+import userIDRouter  from './routes/userID';
+import helmet  from 'helmet';
 
 mongoose.connect('mongodb://localhost:27017/wtc');
 
@@ -19,7 +19,7 @@ mongoose.connect('mongodb://localhost:27017/wtc');
 const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(path.dirname('.'), 'views'));
 app.set('view engine', 'ejs');
 
 // parse application/x-www-form-urlencoded
@@ -42,7 +42,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(path.dirname('.'), 'public')));
 
 app.use('/', indexRouter);
 app.use('/userID', userIDRouter);
@@ -64,4 +64,4 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 
-module.exports = app;
+export default app;

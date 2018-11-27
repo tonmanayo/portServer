@@ -1,4 +1,4 @@
-const express = require('express');
+import express from 'express';
 let router = express.Router();
 import RemoteUserModel from './../models/remoteUser'
 /* GET home page. */
@@ -48,4 +48,4 @@ router.post('/', (req, res, next) => {
     })
 });
 
-module.exports = router;
+export default router;
