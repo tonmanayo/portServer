@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon --experimental-modules ./bin/www.mjs",
-    "build": "NODE_ENV=production yarn run clean && yarn run build-babel",
-    "start": "node --experimental-modules ./bin/www.mjs",
+    "dev": "nodemon --experimental-modules ./lib/index.js",
+    "build": "babel lib -d dist ",
+    "serve": "node dist/index.js",
+    "start": "yarn run build && nodemon lib/index.js",
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./bin -s"
 
